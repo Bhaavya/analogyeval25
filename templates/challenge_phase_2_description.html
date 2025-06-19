@@ -1,1 +1,115 @@
-"Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?"
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Phase 2 Description</title>
+    <style>
+        code {
+            background-color: #ecf0f1;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+        }
+        pre {
+            background-color: #2c3e50;
+            color: #ecf0f1;
+            padding: 15px;
+            border-radius: 5px;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+        }
+        .metric-block, .ranking-metric {
+            background-color: #f9f9f9;
+            border-left: 5px solid #3498db;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 0 5px 5px 0;
+        }
+        ul {
+            padding-left: 20px;
+        }
+        li {
+            margin-bottom: 10px;
+        }
+        .note {
+            background-color: #fffbe6;
+            border-left: 5px solid #f0ad4e;
+            padding: 15px;
+            margin-top: 20px;
+            border-radius: 0 5px 5px 0;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Phase 2: Text and Video Analogy Evaluation</h1>
+
+    <p>
+        Welcome to the second and final phase of the challenge. This phase introduces a multimodal evaluation task, where you must assess the quality of an analogy by considering <strong>both its textual description and its corresponding video animation</strong>. The goal is to evaluate the overall pedagogical effectiveness of the complete analogy package.
+    </p>
+
+    <h2>Task Overview</h2>
+    <p>
+        Your task in this phase is to build a system that can process textual information (the analogy and concept description) and visual information (the video animation) to predict scores for all six evaluation metrics. This is a comprehensive test of multimodal understanding.
+    </p>
+
+    <h2>Evaluation Metrics for Phase 2</h2>
+    <p>
+        For this phase, submissions will be evaluated on all six core metrics. This includes the three text-based metrics from Phase 1, plus three new metrics focused on the animation.
+    </p>
+
+    <h3>Text-Based Metrics</h3>
+    <p>The following metrics from Phase 1 are still applicable:</p>
+    <ul>
+        <li><strong>Target concept coverage</strong></li>
+        <li><strong>Mapping strength</strong></li>
+        <li><strong>Metaphoricity</strong></li>
+    </ul>
+
+    <h3>Video-Specific Metrics</h3>
+    <p>The following three metrics are added to evaluate the animation component:</p>
+
+    <div class="metric-block">
+        <h3>4. Alignment with the Textual Analogy</h3>
+        <p><strong>Description:</strong> How completely and accurately the animation covers the content of the analogy text.</p>
+        <ul>
+            <li><code>0</code>: <strong>Poor</strong></li>
+            <li><code>1</code>: <strong>Fair</strong></li>
+            <li><code>2</code>: <strong>Good</strong></li>
+            <li><code>3</code>: <strong>Excellent</strong></li>
+        </ul>
+    </div>
+
+    <div class="metric-block">
+        <h3>5. Visual Clarity/Design</h3>
+        <p><strong>Description:</strong> How clearly and accurately the visual elements represent the scene described in the analogy.</p>
+        <ul>
+            <li><code>0</code>: <strong>Poor</strong></li>
+            <li><code>1</code>: <strong>Fair</strong></li>
+            <li><code>2</code>: <strong>Good</strong></li>
+            <li><code>3</code>: <strong>Excellent</strong></li>
+        </ul>
+    </div>
+
+    <div class="metric-block">
+        <h3>6. Visual engagement</h3>
+        <p><strong>Description:</strong> Rates how effectively the animation holds the viewer’s attention and fosters interest in the topic.</p>
+        <ul>
+            <li><code>0</code>: Lacks engagement</li>
+            <li><code>1</code>: Some moments of interest</li>
+            <li><code>2</code>: Generally engaging</li>
+            <li><code>3</code>: Consistently captivates attention</li>
+        </ul>
+    </div>
+    
+    <h2>Submission Guidelines</h2>
+    <p>
+        Please provide your predictions in a <code>submission.json</code> file. For each example in the test set for this phase, your submission should include predictions for <strong>all six metrics</strong>.
+    </p>
+    <p>
+        For a complete description of the submission format and how the final leaderboard scores are calculated, please refer to the main <strong>Evaluation Details</strong> tab.
+    </p>
+
+</body>
+</html>

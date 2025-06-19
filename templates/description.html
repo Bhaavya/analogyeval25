@@ -1,85 +1,132 @@
-<section class="challenge-description">
-  <p>
-    Welcome to the Longform Analogy Evaluation Challenge! This challenge focuses
-    on evaluating the quality of analogies and their associated video animations
-    designed to explain <strong>Computer Science</strong> concepts.
-  </p>
-</section>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Challenge Description</title>
+    <style>
+        code {
+            background-color: #ecf0f1;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+        }
+        pre {
+            background-color: #2c3e50;
+            color: #ecf0f1;
+            padding: 15px;
+            border-radius: 5px;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+        }
+        .metric-block, .ranking-metric {
+            background-color: #f9f9f9;
+            border-left: 5px solid #3498db;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 0 5px 5px 0;
+        }
+        ul {
+            padding-left: 20px;
+        }
+        li {
+            margin-bottom: 10px;
+        }
+        .note {
+            background-color: #fffbe6;
+            border-left: 5px solid #f0ad4e;
+            padding: 15px;
+            margin-top: 20px;
+            border-radius: 0 5px 5px 0;
+        }
+    </style>
+</head>
+<body>
 
-<section class="task-description">
-  <h3>Evaluation Task</h3>
-  <p class="task-details">
-    Participants are invited to develop automated evaluation systems that assess how well each analogy and animation communicates a given concept. The analogies are crafted to creatively explain technical topics, and your job is to judge their accuracy and effectiveness.
-  </p>
-</section>
+    <section class="challenge-description">
+      <p>
+        Welcome to the Longform Analogy Evaluation Challenge! This challenge focuses
+        on evaluating the quality of analogies and their associated video animations
+        designed to explain <strong>Computer Science</strong> concepts.
+      </p>
+    </section>
+
+    <section class="task-description">
+      <h3>Evaluation Task</h3>
+      <p class="task-details">
+        Participants are invited to develop automated evaluation systems that assess how well each analogy and animation communicates a given concept. The analogies are crafted to creatively explain technical topics, and your job is to judge their accuracy and effectiveness.
+      </p>
+    </section>
 
 
 
-<section class="dataset-description">
-  <h3>Dataset</h3>
-  <p class="dataset-overview">
-    You will receive a dataset with <strong>N examples</strong> of analogies. Each example consists of:
-  </p>
-  <ul class="dataset-contents">
-    <li>A textual analogy explaining a CS concept</li>
-    <li>An optional animation (video) illustrating that analogy</li>
-    <li>A concept description used to ground evaluation</li>
-    <li>Reference metric scores (for dev phase only)</li>
-  </ul>
-</section>
+    <section class="dataset-description">
+      <h3>Dataset</h3>
+      <p class="dataset-overview">
+        You will receive a dataset with <strong>N examples</strong> of analogies. Each example consists of:
+      </p>
+      <ul class="dataset-contents">
+        <li>A textual analogy explaining a CS concept</li>
+        <li>An optional animation (video) illustrating that analogy</li>
+        <li>A concept description used to ground evaluation</li>
+        <li>Reference metric scores (for dev phase only)</li>
+      </ul>
+    </section>
 
-<section class="challenge-format">
-  <h3>Challenge Format</h3>
-  <p class="format-description">
-    The challenge is split into two phases:
-  </p>
-  <ol class="challenge-phases">
-    <li><strong>Text-only Phase:</strong> You evaluate analogies based on their textual descriptions.</li>
-    <li><strong>Text + Video Phase:</strong> You evaluate both the text and the accompanying animation.</li>
-  </ol>
-  <p class="submission-note">
-    Each submission must return metric scores for the analogies as described in the evaluation criteria.
-  </p>
-</section>
+    <section class="challenge-format">
+      <h3>Challenge Format</h3>
+      <p class="format-description">
+        The challenge is split into two phases:
+      </p>
+      <ol class="challenge-phases">
+        <li><strong>Text-only Phase:</strong> You evaluate analogies based on their textual descriptions.</li>
+        <li><strong>Text + Video Phase:</strong> You evaluate both the text and the accompanying animation.</li>
+      </ol>
+      <p class="submission-note">
+        Each submission must return metric scores for the analogies as described in the evaluation criteria.
+      </p>
+    </section>
 
-<section class="evaluation-criteria">
-  <h3>Evaluation Criteria</h3>
-  <p class="criteria-introduction">
-    Each analogy will be scored on the following six metrics:
-  </p>
-  <ul class="metrics-list">
-<!--Add metrics description-->
+    <section class="evaluation-criteria">
+      <h3>Evaluation Criteria</h3>
+      <p class="criteria-introduction">
+        Each analogy will be scored on the following six metrics:
+      </p>
+      <ul class="metrics-list">
     <li><strong>Target Concept Coverage</strong></li>
-    <li><strong>Mapping Strength</strong></li>
-    <li><strong>Metaphoricity</strong></li>
-    <li><strong>Alignment with Textual Analogy</strong> (video phase only)</li>
-    <li><strong>Visual Clarity/Design</strong> (video phase only)</li>
-    <li><strong>Visual Engagement</strong> (video phase only)</li>
-  </ul>
-  <p class="scoring-information">
-    Each metric is rated on a scale. The total score is the sum (or weighted sum) of all individual metric scores.
-  </p>
-</section>
+        <li><strong>Mapping Strength</strong></li>
+        <li><strong>Metaphoricity</strong></li>
+        <li><strong>Alignment with Textual Analogy</strong> (video phase only)</li>
+        <li><strong>Visual Clarity/Design</strong> (video phase only)</li>
+        <li><strong>Visual Engagement</strong> (video phase only)</li>
+      </ul>
+      <p class="scoring-information">
+        Each metric is rated on a scale. The total score is the sum (or weighted sum) of all individual metric scores.
+      </p>
+    </section>
 
-<section class="submissions-info">
-  <h3>Submissions</h3>
-  <p class="submission-instructions">
-    You will submit your evaluation predictions in the specified JSON format. The format and further submission guidelines can be found under the "Submission Guidelines" tab.
-  </p>
-</section>
+    <section class="submissions-info">
+      <h3>Submissions</h3>
+      <p class="submission-instructions">
+        You will submit your evaluation predictions in the specified JSON format. The format and further submission guidelines can be found under the "Submission Guidelines" tab.
+      </p>
+    </section>
 
-<section class="challenge-goal">
-  <h3>Goal</h3>
-  <p class="goal-description">
-    The main goal is to explore automated techniques for evaluating long-form pedagogical analogies, especially those used in CS education. High-performing systems may combine NLP, vision, and multimodal understanding.
-  </p>
-</section>
+    <section class="challenge-goal">
+      <h3>Goal</h3>
+      <p class="goal-description">
+        The main goal is to explore automated techniques for evaluating long-form pedagogical analogies, especially those used in CS education. High-performing systems may combine NLP, vision, and multimodal understanding.
+      </p>
+    </section>
 
-<section class="challenge-importance">
-  <h3>Why This Matters</h3>
-  <p class="importance-explanation">
-    Analogies are powerful teaching tools.
-      Evaluating them is complex even for humans,
-      and solving this computationally opens up possibilities for better <em>AI-based analogy processing tools.</em>
-  </p>
-</section>
+    <section class="challenge-importance">
+      <h3>Why This Matters</h3>
+      <p class="importance-explanation">
+        Analogies are powerful teaching tools.
+          Evaluating them is complex even for humans,
+          and solving this computationally opens up possibilities for better <em>AI-based analogy processing tools.</em>
+      </p>
+    </section>
+
+</body>
+</html>

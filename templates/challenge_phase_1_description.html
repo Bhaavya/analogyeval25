@@ -1,1 +1,101 @@
-<p>"Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?"</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Phase 1 Description</title>
+    <style>
+        code {
+            background-color: #ecf0f1;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+        }
+        pre {
+            background-color: #2c3e50;
+            color: #ecf0f1;
+            padding: 15px;
+            border-radius: 5px;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+        }
+        .metric-block, .ranking-metric {
+            background-color: #f9f9f9;
+            border-left: 5px solid #3498db;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 0 5px 5px 0;
+        }
+        ul {
+            padding-left: 20px;
+        }
+        li {
+            margin-bottom: 10px;
+        }
+        .note {
+            background-color: #fffbe6;
+            border-left: 5px solid #f0ad4e;
+            padding: 15px;
+            margin-top: 20px;
+            border-radius: 0 5px 5px 0;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Phase 1: Text-only Analogy Evaluation</h1>
+
+    <p>
+        Welcome to the first phase of the Longform Analogy Evaluation Challenge. This phase focuses exclusively on the <strong>textual component</strong> of the analogies. The goal is to assess the quality of an analogy based solely on its written description, without considering any visual aids.
+    </p>
+
+    <h2>Task Overview</h2>
+    <p>
+        Your task in this phase is to develop an automated system that reads an analogy's text and its corresponding concept description, then predicts a score for each of the three text-based evaluation metrics. Your system should output these predictions in the specified JSON format.
+    </p>
+
+    <h2>Evaluation Metrics for Phase 1</h2>
+    <p>
+        For this phase, submissions will be evaluated on the following three core metrics:
+    </p>
+
+    <div class="metric-block">
+        <h3>1. Target concept coverage</h3>
+        <p><strong>Description:</strong> How well the analogy covers the topics in the provided concept description.</p>
+        <ul>
+            <li><code>0</code>: Does not cover any topic.</li>
+            <li><code>1</code>: Covers some topics in the description.</li>
+            <li><code>2</code>: Covers all topics in the description.</li>
+        </ul>
+    </div>
+
+    <div class="metric-block">
+        <h3>2. Mapping strength</h3>
+        <p><strong>Description:</strong> The logical soundness and consistency of the correspondence between source and target concepts.</p>
+        <ul>
+            <li><code>0</code>: <strong>Weak mapping</strong></li>
+            <li><code>1</code>: <strong>Moderately strong mapping</strong></li>
+            <li><code>2</code>: <strong>Very strong mapping</strong></li>
+        </ul>
+    </div>
+
+    <div class="metric-block">
+        <h3>3. Metaphoricity</h3>
+        <p><strong>Description:</strong> The conceptual distance between the source and the target concept.</p>
+        <ul>
+            <li><code>0</code>: <strong>Low</strong></li>
+            <li><code>1</code>: <strong>Moderate</strong></li>
+            <li><code>2</code>: <strong>High</strong></li>
+        </ul>
+    </div>
+
+    <h2>Submission Guidelines</h2>
+    <p>
+        Please provide your predictions in a <code>submission.json</code> file. For each example in the test set for this phase, your submission should only include predictions for the three metrics listed above.
+    </p>
+    <p>
+        For a complete description of the submission format and how the final leaderboard scores are calculated, please refer to the main <strong>Evaluation Details</strong> tab.
+    </p>
+
+</body>
+</html>
