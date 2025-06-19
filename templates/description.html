@@ -1,3 +1,85 @@
-<p>"Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?"</p>
+<section class="challenge-description">
+  <p>
+    Welcome to the Longform Analogy Evaluation Challenge! This challenge focuses
+    on evaluating the quality of analogies and their associated video animations
+    designed to explain <strong>Computer Science</strong> concepts.
+  </p>
+</section>
 
-<p>"Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?"</p>
+<section class="task-description">
+  <h3>Evaluation Task</h3>
+  <p class="task-details">
+    Participants are invited to develop automated evaluation systems that assess how well each analogy and animation communicates a given concept. The analogies are crafted to creatively explain technical topics, and your job is to judge their accuracy and effectiveness.
+  </p>
+</section>
+
+
+
+<section class="dataset-description">
+  <h3>Dataset</h3>
+  <p class="dataset-overview">
+    You will receive a dataset with <strong>N examples</strong> of analogies. Each example consists of:
+  </p>
+  <ul class="dataset-contents">
+    <li>A textual analogy explaining a CS concept</li>
+    <li>An optional animation (video) illustrating that analogy</li>
+    <li>A concept description used to ground evaluation</li>
+    <li>Reference metric scores (for dev phase only)</li>
+  </ul>
+</section>
+
+<section class="challenge-format">
+  <h3>Challenge Format</h3>
+  <p class="format-description">
+    The challenge is split into two phases:
+  </p>
+  <ol class="challenge-phases">
+    <li><strong>Text-only Phase:</strong> You evaluate analogies based on their textual descriptions.</li>
+    <li><strong>Text + Video Phase:</strong> You evaluate both the text and the accompanying animation.</li>
+  </ol>
+  <p class="submission-note">
+    Each submission must return metric scores for the analogies as described in the evaluation criteria.
+  </p>
+</section>
+
+<section class="evaluation-criteria">
+  <h3>Evaluation Criteria</h3>
+  <p class="criteria-introduction">
+    Each analogy will be scored on the following six metrics:
+  </p>
+  <ul class="metrics-list">
+<!--Add metrics description-->
+    <li><strong>Target Concept Coverage</strong></li>
+    <li><strong>Mapping Strength</strong></li>
+    <li><strong>Metaphoricity</strong></li>
+    <li><strong>Alignment with Textual Analogy</strong> (video phase only)</li>
+    <li><strong>Visual Clarity/Design</strong> (video phase only)</li>
+    <li><strong>Visual Engagement</strong> (video phase only)</li>
+  </ul>
+  <p class="scoring-information">
+    Each metric is rated on a scale. The total score is the sum (or weighted sum) of all individual metric scores.
+  </p>
+</section>
+
+<section class="submissions-info">
+  <h3>Submissions</h3>
+  <p class="submission-instructions">
+    You will submit your evaluation predictions in the specified JSON format. The format and further submission guidelines can be found under the "Submission Guidelines" tab.
+  </p>
+</section>
+
+<section class="challenge-goal">
+  <h3>Goal</h3>
+  <p class="goal-description">
+    The main goal is to explore automated techniques for evaluating long-form pedagogical analogies, especially those used in CS education. High-performing systems may combine NLP, vision, and multimodal understanding.
+  </p>
+</section>
+
+<section class="challenge-importance">
+  <h3>Why This Matters</h3>
+  <p class="importance-explanation">
+    Analogies are powerful teaching tools.
+      Evaluating them is complex even for humans,
+      and solving this computationally opens up possibilities for better <em>AI-based analogy processing tools.</em>
+  </p>
+</section>

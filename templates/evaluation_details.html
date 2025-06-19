@@ -1,1 +1,196 @@
-<p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Evaluation Details</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.6;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        h1, h2, h3 {
+            color: #2c3e50;
+            border-bottom: 2px solid #ecf0f1;
+            padding-bottom: 10px;
+        }
+        code {
+            background-color: #ecf0f1;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+        }
+        pre {
+            background-color: #2c3e50;
+            color: #ecf0f1;
+            padding: 15px;
+            border-radius: 5px;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+        }
+        .metric-block, .ranking-metric {
+            background-color: #f9f9f9;
+            border-left: 5px solid #3498db;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 0 5px 5px 0;
+        }
+        ul {
+            padding-left: 20px;
+        }
+        li {
+            margin-bottom: 10px;
+        }
+        .note {
+            background-color: #fffbe6;
+            border-left: 5px solid #f0ad4e;
+            padding: 15px;
+            margin-top: 20px;
+            border-radius: 0 5px 5px 0;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Evaluation Details</h1>
+
+    <p>
+        The goal of this challenge is to create an automated system that can evaluate computer science analogies based on a set of defined metrics. Your system's predictions will be compared against a ground truth dataset of human-annotated scores using a comprehensive suite of statistical measures.
+    </p>
+
+    <h2>Submission Format</h2>
+    <p>
+        Your submission must be a single JSON file named <code>submission.json</code>. The file should contain a dictionary where keys are the unique IDs of the examples in the test set, and the values are dictionaries of your predicted scores for each metric. Please use the numerical values defined for each metric's rating scale in the sections below.
+    </p>
+    <pre>
+{
+  "example_id_1": {
+    "target_concept_coverage": 2,
+    "mapping_strength": 2,
+    "metaphoricity": 1
+  },
+  "example_id_2": {
+    "target_concept_coverage": 1,
+    "mapping_strength": 2,
+    "metaphoricity": 2,
+    "alignment_with_text": 3,
+    "visual_clarity": 2,
+    "visual_engagement": 3
+  },
+  "...": {}
+}
+    </pre>
+
+    <h2 id="ranking">Leaderboard Ranking and Metrics</h2>
+    <p>
+        Your submitted automated ratings will be compared with the human-annotated ground truth ratings using the following statistics. These will be displayed on the leaderboard for each of the core analogy metrics (e.g., Target Concept Coverage, Mapping Strength, etc.).
+    </p>
+
+    <div class="ranking-metric">
+        <h3>Primary Ranking Metric</h3>
+        <p>
+            The main leaderboard will be ranked by <strong>Pairwise Accuracy</strong>. This metric is chosen for its robustness, as it correctly rewards predicting pair rankings and predicting ties, and includes a tie calibration method. A higher Pairwise Accuracy score indicates better performance.
+        </p>
+    </div>
+
+    <h3>Secondary Evaluation Metrics</h3>
+    <p>The following metrics will also be calculated and displayed on the leaderboard to provide a comprehensive view of your system's performance:</p>
+    <ul>
+        <li>
+            <strong>Pairwise Accuracy:</strong> (Primary Metric) To mitigate shortcomings of Kendall's tau in case of several ties, this metric rewards systems for both predicting correct pair rankings and correctly predicting ties.
+        </li>
+        <li>
+            <strong>Kendall's tau-b:</strong> Compares the rank order of your automated evaluation with the human ratings. It is a measure of rank correlation. Higher is better.
+        </li>
+        <li>
+            <strong>Kendall's tau-b after outlier removal:</strong> To avoid spurious correlations caused by a few outliers, we will also measure Kendall's tau after removing statistical outliers.
+        </li>
+        <li>
+            <strong>Krippendorff's alpha:</strong> Measures the agreement between your ratings and human ratings, correcting for chance agreements. Higher is better.
+        </li>
+        <li>
+            <strong>Mean Squared Error (MSE):</strong> Unlike the metrics above that compare rank order, MSE measures the average squared difference between your predicted values and the human ratings. Lower is better.
+        </li>
+    </ul>
+
+    <hr>
+
+    <h1>Core Analogy Metrics Being Evaluated</h1>
+    <p>
+        The challenge is divided into two phases. The evaluation statistics described above will be applied to the following core analogy metrics in each phase.
+    </p>
+
+    <h2>Phase 1: Text-only Analogy Evaluation</h2>
+    <p>This phase evaluates analogies based only on their textual description.</p>
+
+    <div class="metric-block">
+        <h3>1. Target concept coverage</h3>
+        <p><strong>Description:</strong> How well the analogy covers the topics in the provided concept description.</p>
+        <ul>
+            <li><code>0</code>: Does not cover any topic.</li>
+            <li><code>1</code>: Covers some topics in the description.</li>
+            <li><code>2</code>: Covers all topics in the description.</li>
+        </ul>
+    </div>
+
+    <div class="metric-block">
+        <h3>2. Mapping strength</h3>
+        <p><strong>Description:</strong> The logical soundness and consistency of the correspondence between source and target concepts.</p>
+        <ul>
+            <li><code>0</code>: <strong>Weak mapping</strong></li>
+            <li><code>1</code>: <strong>Moderately strong mapping</strong></li>
+            <li><code>2</code>: <strong>Very strong mapping</strong></li>
+        </ul>
+    </div>
+
+    <div class="metric-block">
+        <h3>3. Metaphoricity</h3>
+        <p><strong>Description:</strong> The conceptual distance between the source and the target concept.</p>
+        <ul>
+            <li><code>0</code>: <strong>Low</strong></li>
+            <li><code>1</code>: <strong>Moderate</strong></li>
+            <li><code>2</code>: <strong>High</strong></li>
+        </ul>
+    </div>
+
+    <h2>Phase 2: Text and Video Analogy Evaluation</h2>
+    <p>This phase includes the three metrics from Phase 1, plus three additional metrics focused on the visual animation.</p>
+
+    <div class="metric-block">
+        <h3>4. Alignment with the Textual Analogy</h3>
+        <p><strong>Description:</strong> How completely and accurately the animation covers the content of the analogy text.</p>
+        <ul>
+            <li><code>0</code>: <strong>Poor</strong></li>
+            <li><code>1</code>: <strong>Fair</strong></li>
+            <li><code>2</code>: <strong>Good</strong></li>
+            <li><code>3</code>: <strong>Excellent</strong></li>
+        </ul>
+    </div>
+
+    <div class="metric-block">
+        <h3>5. Visual Clarity/Design</h3>
+        <p><strong>Description:</strong> How clearly and accurately the visual elements represent the scene described in the analogy.</p>
+        <ul>
+            <li><code>0</code>: <strong>Poor</strong></li>
+            <li><code>1</code>: <strong>Fair</strong></li>
+            <li><code>2</code>: <strong>Good</strong></li>
+            <li><code>3</code>: <strong>Excellent</strong></li>
+        </ul>
+    </div>
+
+    <div class="metric-block">
+        <h3>6. Visual engagement</h3>
+        <p><strong>Description:</strong> Rates how effectively the animation holds the viewer’s attention and fosters interest in the topic.</p>
+        <ul>
+            <li><code>0</code>: Lacks engagement</li>
+            <li><code>1</code>: Some moments of interest</li>
+            <li><code>2</code>: Generally engaging</li>
+            <li><code>3</code>: Consistently captivates attention</li>
+        </ul>
+    </div>
+
+</body>
+</html>
