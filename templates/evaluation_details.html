@@ -78,31 +78,12 @@
     </p>
 
     <div class="ranking-metric">
-        <h3>Primary Ranking Metric</h3>
         <p>
-            The main leaderboard will be ranked by <strong>Pairwise Accuracy</strong>. This metric is chosen for its robustness, as it correctly rewards predicting pair rankings and predicting ties, and includes a tie calibration method. A higher Pairwise Accuracy score indicates better performance.
+            <strong>Kendall's tau-b:</strong> Compares the rank order of your automated evaluation with the human ratings. It is a measure of rank correlation. Higher is better.
         </p>
     </div>
 
-    <h3>Secondary Evaluation Metrics</h3>
-    <p>The following metrics will also be calculated and displayed on the leaderboard to provide a comprehensive view of your system's performance:</p>
-    <ul>
-        <li>
-            <strong>Pairwise Accuracy:</strong> (Primary Metric) To mitigate shortcomings of Kendall's tau in case of several ties, this metric rewards systems for both predicting correct pair rankings and correctly predicting ties.
-        </li>
-        <li>
-            <strong>Kendall's tau-b:</strong> Compares the rank order of your automated evaluation with the human ratings. It is a measure of rank correlation. Higher is better.
-        </li>
-        <li>
-            <strong>Kendall's tau-b after outlier removal:</strong> To avoid spurious correlations caused by a few outliers, we will also measure Kendall's tau after removing statistical outliers.
-        </li>
-        <li>
-            <strong>Krippendorff's alpha:</strong> Measures the agreement between your ratings and human ratings, correcting for chance agreements. Higher is better.
-        </li>
-        <li>
-            <strong>Mean Squared Error (MSE):</strong> Unlike the metrics above that compare rank order, MSE measures the average squared difference between your predicted values and the human ratings. Lower is better.
-        </li>
-    </ul>
+    
 
     <hr>
 
